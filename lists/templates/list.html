@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+
+    <p>
+        <a class="btn btn-primary js-add-user" role="button" href="/add">Add new User</a>
+    </p>
+    <h1 class="page-header">User List</h1>
+    <table class="table" id="user-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td class="text-center bg-warning">No User</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock  %}
